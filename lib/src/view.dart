@@ -150,9 +150,41 @@ extension SettingTheBorderOfAView on Widget {
       Container(decoration: BoxDecoration(border: style), child: this);
 }
 
-
-extension OnTap on Widget {
+extension SwiftTap on Widget {
   /// Pads the view along all edge insets by the specified amount.
   Widget onTap(GestureTapCallback onTap) =>
       GestureDetector( onTap: onTap, child:this);
+}
+
+extension SwiftContainer on Widget {
+  /// Pads the view along all edge insets by the specified amount.
+  Widget container({
+    Key key,
+    AlignmentGeometry alignment,
+    EdgeInsetsGeometry padding,
+    Color color,
+    Decoration decoration,
+    Decoration foregroundDecoration,
+    double width,
+    double height,
+    BoxConstraints constraints,
+    EdgeInsetsGeometry margin,
+    Matrix4 transform,
+    Clip clipBehavior = Clip.none,
+  }) =>
+      Container(
+        key:key,
+        alignment:alignment,
+        padding:padding,
+        color:color,
+        decoration:decoration,
+        foregroundDecoration:foregroundDecoration,
+        width:width,
+        height:height,
+        constraints:constraints,
+        margin:margin,
+        transform:transform,
+        child:this,
+        clipBehavior:clipBehavior,
+      );
 }
