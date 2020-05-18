@@ -23,6 +23,7 @@ class Example extends StatelessWidget {
         Text("offsetDegrees").offsetDegrees(180, 100),
         Text("foo").border(Border.all()),
         Text("More padded").padded(40),
+        Text("Tap me").onTap(() {}),
       ],
     );
   }
