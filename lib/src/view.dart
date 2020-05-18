@@ -149,3 +149,10 @@ extension SettingTheBorderOfAView on Widget {
   Widget border(Border style) =>
       Container(decoration: BoxDecoration(border: style), child: this);
 }
+
+
+extension OnTap on Widget {
+  /// Pads the view along all edge insets by the specified amount.
+  Widget onTap(GestureTapCallback onTap) =>
+      GestureDetector( onTap: onTap, child:this);
+}
