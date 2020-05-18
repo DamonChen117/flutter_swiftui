@@ -11,6 +11,8 @@ dependencies:
 ```
 
 ```dart
+import 'package:swiftui/swiftui.dart';
+
 class Example extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
