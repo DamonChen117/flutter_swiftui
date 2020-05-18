@@ -24,6 +24,7 @@ class Example extends StatelessWidget {
         Text("foo").border(Border.all()),
         Text("More padded").padded(40),
         Text("Tap me").onTap(() {}),
+        Text("container").container(color: Colors.white),
       ],
     );
   }
