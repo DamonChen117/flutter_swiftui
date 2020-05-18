@@ -7,7 +7,7 @@ dependencies:
   flutter:
     sdk: flutter
   swiftui:
-    git: https://github.com/lukepighetti/flutter_swiftui
+    git: https://github.com/DamonChen117/flutter_swiftui
 ```
 
 ```dart
