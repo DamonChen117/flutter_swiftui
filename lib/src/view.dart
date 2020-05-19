@@ -188,3 +188,31 @@ extension SwiftContainer on Widget {
         clipBehavior:clipBehavior,
       );
 }
+
+extension SwiftExpanded on Widget {
+  Widget expanded({
+    Key key,
+    int flex = 1,
+  })
+  => Expanded(key:key, flex:flex, child: this,);
+
+}
+
+extension SwiftAspectRatio on Widget {
+  Widget aspectRatio({
+    Key key,
+    double aspectRatio,
+  })
+  => AspectRatio(key:key, aspectRatio:aspectRatio, child: this,);
+
+}
+
+extension SwiftClipRRect on Widget {
+  Widget clipRRect({
+    Key key,
+    BorderRadius borderRadius = BorderRadius.zero,
+    CustomClipper<RRect> clipper,
+    Clip clipBehavior = Clip.antiAlias,
+  })
+  => ClipRRect(key:key, borderRadius:borderRadius, clipper:clipper, clipBehavior:clipBehavior, child: this,);
+}
