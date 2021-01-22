@@ -138,7 +138,11 @@ extension SettingTheForegroundOrBackgroundOfAView on Widget {
     Widget background, [
     Alignment alignment = Alignment.center,
   ]) =>
-      Stack(alignment: alignment, children: <Widget>[background, this]);
+      Stack(alignment: alignment, children: <Widget>[Positioned.fill(child: background), this]);
+
+  Widget backgroudColor(Color color) {
+    return this.background(Container(color: color));
+  }
 
   /// func zIndex(Double) -> View
   /// Controls the display order of overlapping views.
@@ -215,4 +219,11 @@ extension SwiftClipRRect on Widget {
     Clip clipBehavior = Clip.antiAlias,
   })
   => ClipRRect(key:key, borderRadius:borderRadius, clipper:clipper, clipBehavior:clipBehavior, child: this,);
+}
+
+extension SCSV on Widget{
+  Widget singleChildScrollView({
+    Key key
+  })
+  => SingleChildScrollView(key:key, child: this,);
 }
