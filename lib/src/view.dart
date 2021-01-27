@@ -227,3 +227,9 @@ extension SCSV on Widget{
   })
   => SingleChildScrollView(key:key, child: this,);
 }
+
+
+Text ColorText(String data, Color color){
+  return Text(data, style: TextStyle(color: color),);
+}
+
