@@ -226,6 +226,11 @@ extension v on Widget {
     Key key,
   })
   => Visibility(key:key, visible: visible, child: this,);
+
+  Widget center({
+    Key key,
+  })
+  => Center(key:key, child: this,);
 }
 
 extension SCSV on Widget{
