@@ -221,6 +221,13 @@ extension SwiftClipRRect on Widget {
   => ClipRRect(key:key, borderRadius:borderRadius, clipper:clipper, clipBehavior:clipBehavior, child: this,);
 }
 
+extension v on Widget {
+  Widget visible(bool visible,{
+    Key key,
+  })
+  => Visibility(key:key, visible: visible, child: this,);
+}
+
 extension SCSV on Widget{
   Widget singleChildScrollView({
     Key key
