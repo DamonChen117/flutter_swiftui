@@ -231,6 +231,12 @@ extension v on Widget {
     Key key,
   })
   => Center(key:key, child: this,);
+
+  Widget safeArea({
+    Key key,
+  })
+  => SafeArea(key:key, child: this,);
+
 }
 
 extension SCSV on Widget{
