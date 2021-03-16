@@ -203,9 +203,8 @@ extension SwiftExpanded on Widget {
 }
 
 extension SwiftAspectRatio on Widget {
-  Widget aspectRatio({
+  Widget aspectRatio(double aspectRatio, {
     Key key,
-    double aspectRatio,
   })
   => AspectRatio(key:key, aspectRatio:aspectRatio, child: this,);
 
