@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:flutter/widgets.dart';
+import 'package:flutter/material.dart';
 
 
 extension AdjustingThePaddingOfAView on Widget {
@@ -130,6 +131,20 @@ extension v on Widget {
     Key key,
   })
   => SafeArea(key:key, child: this,);
+
+  Widget scrollbar({
+    Key key,
+    ScrollController controller,
+    bool isAlwaysShown = false,
+    double thickness,
+    Radius radius,
+  })
+  => Scrollbar(key:key,
+    controller:controller,
+    isAlwaysShown:isAlwaysShown,
+    thickness:thickness,
+    radius:radius,
+    child: this,);
 
 }
 
