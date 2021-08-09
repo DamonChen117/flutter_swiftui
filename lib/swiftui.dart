@@ -157,10 +157,10 @@ extension SCSV on Widget{
 
 extension FractionallySizedBoxWidget on Widget {
   Widget fractionally({
-    Key? key,
+    Key key,
     this.alignment = Alignment.center,
-    double? widthFactor,
-    double? heightFactor,
+    double widthFactor,
+    double heightFactor,
   })
   => FractionallySizedBox(key:key,
       child: this,
