@@ -158,7 +158,7 @@ extension SCSV on Widget{
 extension FractionallySizedBoxWidget on Widget {
   Widget fractionally({
     Key key,
-    this.alignment = Alignment.center,
+    Alignment alignment = Alignment.center,
     double widthFactor,
     double heightFactor,
   })
