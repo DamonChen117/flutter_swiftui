@@ -172,7 +172,7 @@ extension FractionallySizedBoxWidget on Widget {
 extension NotificationListenerWidget on Widget {
   Widget notification<T extends Notification>({
     Key key,
-    NotificationListenerCallback<T>? onNotification,
+    NotificationListenerCallback<T> onNotification,
   })
   => NotificationListener<T>(
       key:key,
