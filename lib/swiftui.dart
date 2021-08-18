@@ -169,6 +169,19 @@ extension FractionallySizedBoxWidget on Widget {
       heightFactor:heightFactor);
 }
 
+extension NotificationListenerWidget on Widget {
+  Widget notification<T extends Notification>({
+    Key key,
+    NotificationListenerCallback<T>? onNotification,
+  })
+  => NotificationListener<T>(
+      key:key,
+      onNotification: onNotification,
+      child: this
+  );
+}
+
+
 
 Text ColorText(String data, Color color){
   return Text(data, style: TextStyle(color: color),);
