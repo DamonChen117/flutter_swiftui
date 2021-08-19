@@ -50,10 +50,39 @@ extension SettingTheBorderOfAView on Widget {
       Container(decoration: BoxDecoration(border: style), child: this);
 }
 
+class GestureDetectorBuilder {
+
+  Widget child;
+  GestureTapCallback onTap2;
+  GestureLongPressCallback onLongPress2;
+
+  GestureDetectorBuilder(this.child);
+
+  GestureDetector build(){
+    return GestureDetector(
+        child:child,
+        onTap: onTap2,
+        onLongPress:onLongPress2);
+  }
+
+  GestureDetectorBuilder onTap(GestureTapCallback onTap) {
+    this.onTap2 = onTap;
+    return this;
+  }
+
+  GestureDetectorBuilder onLongPress(GestureLongPressCallback onLongPress) {
+    this.onLongPress2 = onLongPress;
+    return this;
+  }
+}
+
 extension SwiftTap on Widget {
   /// Pads the view along all edge insets by the specified amount.
   Widget onTap(GestureTapCallback onTap) =>
       GestureDetector( onTap: onTap, child:this);
+
+  GestureDetectorBuilder gestureBuilder() =>
+      GestureDetectorBuilder(this);
 }
 
 extension SwiftContainer on Widget {
