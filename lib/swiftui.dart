@@ -210,6 +210,26 @@ extension NotificationListenerWidget on Widget {
   );
 }
 
+extension SwiftConstrainedBox on Widget {
+  Widget constrainedBox<T extends Notification>({
+    Key key,
+    double minWidth = 0.0,
+    double maxWidth = double.infinity,
+    double minHeight = 0.0,
+    double maxHeight = double.infinity,
+  })
+  => ConstrainedBox(
+    constraints: BoxConstraints(
+      minWidth:minWidth,
+      maxWidth:maxWidth,
+      minHeight:minHeight,
+      maxHeight: maxHeight,
+    ),
+    child: this,
+  );
+}
+
+
 
 
 Text ColorText(String data, Color color){
