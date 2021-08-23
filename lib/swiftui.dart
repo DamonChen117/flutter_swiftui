@@ -249,7 +249,13 @@ extension SwiftConstrainedBox on Widget {
   );
 }
 
-
+extension SwiftRefreshIndicator on Widget {
+  Widget refreshIndicator({RefreshCallback onRefresh}){
+    return RefreshIndicator(
+      child: this,
+      onRefresh: onRefresh,);
+  }
+}
 
 
 Text ColorText(String data, Color color){
