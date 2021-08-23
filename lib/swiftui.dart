@@ -9,9 +9,16 @@ extension AdjustingThePaddingOfAView on Widget {
   Widget padded(double amount) =>
       Padding(padding: EdgeInsets.all(amount), child: this);
 
+  Widget paddedLeftRight(double amount) =>
+      Padding(padding: EdgeInsets.only(left: amount, right: amount), child: this);
+
+  Widget paddedTopBottom(double amount) =>
+      Padding(padding: EdgeInsets.only(top: amount, bottom: amount), child: this);
+
   /// Pads the view using the specified edge insets.
   Widget paddedInsets(EdgeInsets insets) =>
       Padding(padding: insets, child: this);
+
 
   /// func padding(Edge.Set, CGFloat?) -> View
   /// Pads the view using the specified edge insets.
@@ -158,8 +165,21 @@ extension v on Widget {
 
   Widget safeArea({
     Key key,
+    bool left = true,
+    bool top = true,
+    bool right = true,
+    bool bottom = true,
+    EdgeInsets minimum = EdgeInsets.zero,
+    bool maintainBottomViewPadding = false,
   })
-  => SafeArea(key:key, child: this,);
+  => SafeArea(key:key,
+    left:left,
+    top:top,
+    right:right,
+    bottom:bottom,
+    minimum:minimum,
+    maintainBottomViewPadding:maintainBottomViewPadding,
+    child: this,);
 
   Widget scrollbar({
     Key key,
