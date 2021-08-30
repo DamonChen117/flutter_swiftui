@@ -152,6 +152,15 @@ extension SwiftClipRRect on Widget {
   => ClipRRect(key:key, borderRadius:borderRadius, clipper:clipper, clipBehavior:clipBehavior, child: this,);
 }
 
+extension SwiftIfWidget on Widget {
+  Widget onlyIf(bool condition, Widget Function (Widget widget) callback){
+    if (condition){
+      return callback(this);
+    }
+    return this;
+  }
+}
+
 extension v on Widget {
   Widget visible(bool visible,{
     Key key,
