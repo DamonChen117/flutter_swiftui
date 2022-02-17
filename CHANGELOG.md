@@ -1,3 +1,3 @@
-## 0.1.0 - October 10, 2019
+## 0.0.1
 
-* Super alpha alpha preview release
+* TODO: Describe initial release.

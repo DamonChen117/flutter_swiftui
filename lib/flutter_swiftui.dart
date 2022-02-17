@@ -1,4 +1,5 @@
-import 'dart:math';
+library flutter_swiftui;
+
 
 import 'package:flutter/widgets.dart';
 import 'package:flutter/material.dart';
@@ -20,17 +21,17 @@ extension AdjustingThePaddingOfAView on Widget {
       Padding(padding: insets, child: this);
 
 
-  /// func padding(Edge.Set, CGFloat?) -> View
-  /// Pads the view using the specified edge insets.
+/// func padding(Edge.Set, CGFloat?) -> View
+/// Pads the view using the specified edge insets.
 }
 
 extension SettingTheForegroundOrBackgroundOfAView on Widget {
   /// func overlay<Overlay>(Overlay, alignment: Alignment) -> View
   /// Layers a secondary view in front of the view.
   Widget overlay(
-    Widget overlay, [
-    Alignment alignment = Alignment.center,
-  ]) =>
+      Widget overlay, [
+        Alignment alignment = Alignment.center,
+      ]) =>
       Stack(alignment: alignment, children: <Widget>[this, overlay]);
 
   /// func foregroundColor(Color?) -> View
@@ -38,17 +39,17 @@ extension SettingTheForegroundOrBackgroundOfAView on Widget {
 
   /// func background<Background>(Background, alignment: Alignment) -> View
   Widget background(
-    Widget background, [
-    Alignment alignment = Alignment.center,
-  ]) =>
+      Widget background, [
+        Alignment alignment = Alignment.center,
+      ]) =>
       Stack(alignment: alignment, children: <Widget>[Positioned.fill(child: background), this]);
 
   Widget backgroudColor(Color color) {
     return Container(color: color, child: this);
   }
 
-  /// func zIndex(Double) -> View
-  /// Controls the display order of overlapping views.
+/// func zIndex(Double) -> View
+/// Controls the display order of overlapping views.
 }
 
 extension SettingTheBorderOfAView on Widget {
@@ -60,8 +61,8 @@ extension SettingTheBorderOfAView on Widget {
 class GestureDetectorBuilder {
 
   Widget child;
-  GestureTapCallback onTap2;
-  GestureLongPressCallback onLongPress2;
+  GestureTapCallback? onTap2;
+  GestureLongPressCallback? onLongPress2;
 
   GestureDetectorBuilder(this.child);
 
@@ -95,17 +96,17 @@ extension SwiftTap on Widget {
 extension SwiftContainer on Widget {
   /// Pads the view along all edge insets by the specified amount.
   Widget container({
-    Key key,
-    AlignmentGeometry alignment,
-    EdgeInsetsGeometry padding,
-    Color color,
-    Decoration decoration,
-    Decoration foregroundDecoration,
-    double width,
-    double height,
-    BoxConstraints constraints,
-    EdgeInsetsGeometry margin,
-    Matrix4 transform,
+    Key? key,
+    AlignmentGeometry? alignment,
+    EdgeInsetsGeometry? padding,
+    Color? color,
+    Decoration? decoration,
+    Decoration? foregroundDecoration,
+    double? width,
+    double? height,
+    BoxConstraints? constraints,
+    EdgeInsetsGeometry? margin,
+    Matrix4? transform,
     Clip clipBehavior = Clip.none,
   }) =>
       Container(
@@ -127,7 +128,7 @@ extension SwiftContainer on Widget {
 
 extension SwiftExpanded on Widget {
   Widget expanded({
-    Key key,
+    Key? key,
     int flex = 1,
   })
   => Expanded(key:key, flex:flex, child: this,);
@@ -136,7 +137,7 @@ extension SwiftExpanded on Widget {
 
 extension SwiftAspectRatio on Widget {
   Widget aspectRatio(double aspectRatio, {
-    Key key,
+    Key? key,
   })
   => AspectRatio(key:key, aspectRatio:aspectRatio, child: this,);
 
@@ -144,9 +145,9 @@ extension SwiftAspectRatio on Widget {
 
 extension SwiftClipRRect on Widget {
   Widget clipRRect({
-    Key key,
+    Key? key,
     BorderRadius borderRadius = BorderRadius.zero,
-    CustomClipper<RRect> clipper,
+    CustomClipper<RRect>? clipper,
     Clip clipBehavior = Clip.antiAlias,
   })
   => ClipRRect(key:key, borderRadius:borderRadius, clipper:clipper, clipBehavior:clipBehavior, child: this,);
@@ -163,17 +164,17 @@ extension SwiftIfWidget on Widget {
 
 extension v on Widget {
   Widget visible(bool visible,{
-    Key key,
+    Key? key,
   })
   => Visibility(key:key, visible: visible, child: this,);
 
   Widget center({
-    Key key,
+    Key? key,
   })
   => Center(key:key, child: this,);
 
   Widget safeArea({
-    Key key,
+    Key? key,
     bool left = true,
     bool top = true,
     bool right = true,
@@ -191,11 +192,11 @@ extension v on Widget {
     child: this,);
 
   Widget scrollbar({
-    Key key,
-    ScrollController controller,
+    Key? key,
+    ScrollController? controller,
     bool isAlwaysShown = false,
-    double thickness,
-    Radius radius,
+    double? thickness,
+    Radius? radius,
   })
   => Scrollbar(key:key,
     controller:controller,
@@ -208,17 +209,17 @@ extension v on Widget {
 
 extension SCSV on Widget{
   Widget singleChildScrollView({
-    Key key
+    Key? key
   })
   => SingleChildScrollView(key:key, child: this,);
 }
 
 extension FractionallySizedBoxWidget on Widget {
   Widget fractionally({
-    Key key,
+    Key? key,
     Alignment alignment = Alignment.center,
-    double widthFactor,
-    double heightFactor,
+    double? widthFactor,
+    double? heightFactor,
   })
   => FractionallySizedBox(key:key,
       child: this,
@@ -229,8 +230,8 @@ extension FractionallySizedBoxWidget on Widget {
 
 extension NotificationListenerWidget on Widget {
   Widget notification<T extends Notification>({
-    Key key,
-    NotificationListenerCallback<T> onNotification,
+    Key? key,
+    NotificationListenerCallback<T>? onNotification,
   })
   => NotificationListener<T>(
       key:key,
@@ -241,7 +242,7 @@ extension NotificationListenerWidget on Widget {
 
 extension SwiftConstrainedBox on Widget {
   Widget constrainedBox<T extends Notification>({
-    Key key,
+    Key? key,
     double minWidth = 0.0,
     double maxWidth = double.infinity,
     double minHeight = 0.0,
@@ -259,7 +260,7 @@ extension SwiftConstrainedBox on Widget {
 }
 
 extension SwiftRefreshIndicator on Widget {
-  Widget refreshIndicator({RefreshCallback onRefresh}){
+  Widget refreshIndicator({required RefreshCallback onRefresh}){
     return RefreshIndicator(
       child: this,
       onRefresh: onRefresh,);
