@@ -267,6 +267,33 @@ extension SwiftRefreshIndicator on Widget {
   }
 }
 
+extension ElevatedButtonEx on Widget {
+  ElevatedButton elevatedButton({
+    Key? key,
+    required VoidCallback? onPressed,
+    VoidCallback? onLongPress,
+    ValueChanged<bool>? onHover,
+    ValueChanged<bool>? onFocusChange,
+    ButtonStyle? style,
+    FocusNode? focusNode,
+    bool autofocus = false,
+    Clip clipBehavior = Clip.none
+  }){
+    return ElevatedButton(
+      child: this,
+      key: key,
+      onPressed: onPressed,
+      onLongPress: onLongPress,
+      onHover: onHover,
+      onFocusChange: onFocusChange,
+      style: style,
+      focusNode: focusNode,
+      autofocus:autofocus,
+      clipBehavior:clipBehavior
+    );
+  }
+}
+
 
 Text ColorText(String data, Color color){
   return Text(data, style: TextStyle(color: color),);
