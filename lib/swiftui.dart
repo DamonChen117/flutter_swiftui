@@ -10,6 +10,9 @@ extension AdjustingThePaddingOfAView on Widget {
   Widget padded(double amount) =>
       Padding(padding: EdgeInsets.all(amount), child: this);
 
+  Widget paddedLeft(double amount) =>
+      Padding(padding: EdgeInsets.only(left: amount), child: this);
+
   Widget paddedLeftRight(double amount) =>
       Padding(padding: EdgeInsets.only(left: amount, right: amount), child: this);
 
@@ -299,3 +302,24 @@ Text ColorText(String data, Color color){
   return Text(data, style: TextStyle(color: color),);
 }
 
+
+extension PositionedSwift on Widget {
+  Positioned positioned({
+    Key? key,
+    double? left,
+    double? top,
+    double? right,
+    double? bottom,
+    double? width,
+    double? height,
+  }){
+    return Positioned(
+      child: this,
+      left: left,
+      top:top,
+      right: right,
+      bottom: bottom,
+      width: width,
+      height: height,);
+  }
+}
