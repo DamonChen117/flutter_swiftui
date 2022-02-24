@@ -13,6 +13,15 @@ extension AdjustingThePaddingOfAView on Widget {
   Widget paddedLeft(double amount) =>
       Padding(padding: EdgeInsets.only(left: amount), child: this);
 
+  Widget paddedRight(double amount) =>
+      Padding(padding: EdgeInsets.only(right: amount), child: this);
+
+  Widget paddedTop(double amount) =>
+      Padding(padding: EdgeInsets.only(top: amount), child: this);
+
+  Widget paddedBottom(double amount) =>
+      Padding(padding: EdgeInsets.only(bottom: amount), child: this);
+
   Widget paddedLeftRight(double amount) =>
       Padding(padding: EdgeInsets.only(left: amount, right: amount), child: this);
 
