@@ -64,10 +64,35 @@ extension SettingTheForegroundOrBackgroundOfAView on Widget {
 /// Controls the display order of overlapping views.
 }
 
-extension SettingTheBorderOfAView on Widget {
-  /// Adds a border to the view with the specified style and width.
-  Widget border(Border style) =>
+
+extension SwiftBorder on Widget{
+
+  Widget borderStyle(Border style) =>
       Container(decoration: BoxDecoration(border: style), child: this);
+
+  Widget border({
+    double width = 1,
+    double? radius,
+    Color color = Colors.grey
+  }){
+    BorderRadius? borderRadius;
+    if (radius != null){
+      borderRadius = BorderRadius.all(
+          Radius.circular(radius) //                 <--- border radius here
+      );
+    }
+
+    return Container(
+      child: this,
+      decoration: BoxDecoration(
+        border: Border.all(
+            color: color,
+            width: width
+        ),
+        borderRadius: borderRadius,
+      ),
+    );
+  }
 }
 
 class GestureDetectorBuilder {
