@@ -71,28 +71,52 @@ extension SwiftBorder on Widget{
       Container(decoration: BoxDecoration(border: style), child: this);
 
   Widget border({
-    double width = 1,
-    double? radius,
-    Color color = Colors.grey
-  }){
-    BorderRadius? borderRadius;
-    if (radius != null){
-      borderRadius = BorderRadius.all(
-          Radius.circular(radius) //                 <--- border radius here
+    Key? key,
+    double borderWidth = 1,
+    double? borderRadius,
+    Color borderColor = Colors.grey,
+    AlignmentGeometry? alignment,
+    EdgeInsetsGeometry? padding,
+    Color? color,
+    Decoration? foregroundDecoration,
+    double? width,
+    double? height,
+    BoxConstraints? constraints,
+    EdgeInsetsGeometry? margin,
+    Matrix4? transform,
+    Clip clipBehavior = Clip.none,
+  }) {
+
+    BorderRadius? borderRadius2;
+    if (borderRadius != null){
+      borderRadius2 = BorderRadius.all(
+          Radius.circular(borderRadius) //                 <--- border radius here
       );
     }
 
     return Container(
-      child: this,
+      key: key,
+      alignment: alignment,
+      padding: padding,
+      color: color,
       decoration: BoxDecoration(
         border: Border.all(
-            color: color,
-            width: width
+            color: borderColor,
+            width: borderWidth
         ),
-        borderRadius: borderRadius,
+        borderRadius: borderRadius2,
       ),
+      foregroundDecoration: foregroundDecoration,
+      width: width,
+      height: height,
+      constraints: constraints,
+      margin: margin,
+      transform: transform,
+      child: this,
+      clipBehavior: clipBehavior,
     );
   }
+
 }
 
 class GestureDetectorBuilder {
