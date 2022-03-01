@@ -32,6 +32,12 @@ extension AdjustingThePaddingOfAView on Widget {
   Widget paddedInsets(EdgeInsets insets) =>
       Padding(padding: insets, child: this);
 
+  Widget paddedOnly(
+      { double left = 0.0,
+        double top = 0.0,
+        double right = 0.0,
+        double bottom = 0.0,}) =>
+      Padding(padding: EdgeInsets.only(left: left, top:top, right: right, bottom:bottom), child: this);
 
 /// func padding(Edge.Set, CGFloat?) -> View
 /// Pads the view using the specified edge insets.
@@ -98,8 +104,9 @@ extension SwiftBorder on Widget{
       key: key,
       alignment: alignment,
       padding: padding,
-      color: color,
+      // color: color,
       decoration: BoxDecoration(
+        color: color,
         border: Border.all(
             color: borderColor,
             width: borderWidth
@@ -212,6 +219,15 @@ extension SwiftClipRRect on Widget {
     Clip clipBehavior = Clip.antiAlias,
   })
   => ClipRRect(key:key, borderRadius:borderRadius, clipper:clipper, clipBehavior:clipBehavior, child: this,);
+
+  Widget roundCorner({
+    Key? key,
+    double radius = 8,
+    CustomClipper<RRect>? clipper,
+    Clip clipBehavior = Clip.antiAlias,
+  })
+  => ClipRRect(key:key, borderRadius:BorderRadius.circular(radius), clipper:clipper, clipBehavior:clipBehavior, child: this,);
+
 }
 
 extension SwiftIfWidget on Widget {
