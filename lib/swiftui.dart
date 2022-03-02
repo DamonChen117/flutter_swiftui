@@ -397,3 +397,9 @@ extension PositionedSwift on Widget {
       height: height,);
   }
 }
+
+extension BuildContextPush on BuildContext{
+  void pushPage(Widget page){
+    Navigator.of(this).push(MaterialPageRoute(builder: (context) => page));
+  }
+}
