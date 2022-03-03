@@ -404,6 +404,6 @@ extension BuildContextPush on BuildContext{
   }
 
   void pop(){
-    Navigator.of(this.context).pop();
+    Navigator.of(this).pop();
   }
 }
