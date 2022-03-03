@@ -402,4 +402,8 @@ extension BuildContextPush on BuildContext{
   void pushPage(Widget page){
     Navigator.of(this).push(MaterialPageRoute(builder: (context) => page));
   }
+
+  void pop(){
+    Navigator.of(this.context).pop();
+  }
 }
