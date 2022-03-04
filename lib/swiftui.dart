@@ -407,3 +407,12 @@ extension BuildContextPush on BuildContext{
     Navigator.of(this).pop();
   }
 }
+
+extension SwiftOpacity on Widget{
+  Widget opacity(
+      {Key? key,
+        double opacity,
+        bool alwaysIncludeSemantics = false,}){
+    return Opacity(child: this, key:key, opacity:opacity, alwaysIncludeSemantics:alwaysIncludeSemantics);
+  }
+}
