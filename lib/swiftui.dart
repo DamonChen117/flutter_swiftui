@@ -409,10 +409,11 @@ extension BuildContextPush on BuildContext{
 }
 
 extension SwiftOpacity on Widget{
-  Widget opacity(
+  Opacity opacity(
       {Key? key,
-        double opacity,
-        bool alwaysIncludeSemantics = false,}){
+        required double opacity,
+        bool alwaysIncludeSemantics = false,})
+  {
     return Opacity(child: this, key:key, opacity:opacity, alwaysIncludeSemantics:alwaysIncludeSemantics);
   }
 }
