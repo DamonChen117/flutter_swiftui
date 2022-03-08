@@ -203,6 +203,16 @@ extension SwiftExpanded on Widget {
 
 }
 
+extension SwiftFlexible on Widget {
+  Flexible flexible({
+    Key? key,
+    int flex = 1,
+    FlexFit fit = FlexFit.loose,
+  }){
+    return Flexible(child: this, key:key, flex:flex, fit:fit);
+  }
+}
+
 extension SwiftAspectRatio on Widget {
   Widget aspectRatio(double aspectRatio, {
     Key? key,
