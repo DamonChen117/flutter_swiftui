@@ -427,3 +427,12 @@ extension SwiftOpacity on Widget{
     return Opacity(child: this, key:key, opacity:opacity, alwaysIncludeSemantics:alwaysIncludeSemantics);
   }
 }
+
+extension SwiftAlign on Widget {
+  Align align({Key? key,
+    Alignment alignment = Alignment.center,
+    double? widthFactor,
+    double?  heightFactor,}){
+    return Align(child: this, key: key, alignment: alignment, widthFactor: widthFactor, heightFactor: heightFactor,);
+  }
+}
