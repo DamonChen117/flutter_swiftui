@@ -3,7 +3,7 @@ library flutter_swiftui;
 
 import 'package:flutter/widgets.dart';
 import 'package:flutter/material.dart';
-
+import 'package:flutter/gestures.dart' show DragStartBehavior;
 
 extension AdjustingThePaddingOfAView on Widget {
   /// Pads the view along all edge insets by the specified amount.
@@ -296,9 +296,31 @@ extension v on Widget {
 
 extension SCSV on Widget{
   Widget singleChildScrollView({
-    Key? key
+    Key? key,
+    Axis scrollDirection = Axis.vertical,
+    bool reverse = false,
+    EdgeInsetsGeometry? padding,
+    bool? primary,
+    ScrollPhysics? physics,
+    ScrollController? controller,
+    DragStartBehavior dragStartBehavior = DragStartBehavior.start,
+    Clip clipBehavior = Clip.hardEdge,
+    String? restorationId,
+    ScrollViewKeyboardDismissBehavior keyboardDismissBehavior = ScrollViewKeyboardDismissBehavior.manual,
   })
-  => SingleChildScrollView(key:key, child: this,);
+  => SingleChildScrollView(
+      key:key,
+      child: this,
+      scrollDirection:scrollDirection,
+      reverse:reverse,
+      padding:padding,
+      primary:primary,
+      physics:physics,
+      controller:controller,
+      dragStartBehavior:dragStartBehavior,
+      clipBehavior:clipBehavior,
+      restorationId:restorationId,
+      keyboardDismissBehavior:keyboardDismissBehavior);
 }
 
 extension FractionallySizedBoxWidget on Widget {
