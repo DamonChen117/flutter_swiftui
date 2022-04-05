@@ -154,8 +154,8 @@ class GestureDetectorBuilder {
 
 extension SwiftTap on Widget {
   /// Pads the view along all edge insets by the specified amount.
-  Widget onTap(GestureTapCallback onTap) =>
-      GestureDetector( onTap: onTap, child:this);
+  Widget onTap(GestureTapCallback onTap, {Key? key}) =>
+      GestureDetector( onTap: onTap, child:this, key:key);
 
   GestureDetectorBuilder gestureBuilder() =>
       GestureDetectorBuilder(this);
@@ -456,5 +456,28 @@ extension SwiftAlign on Widget {
     double? widthFactor,
     double?  heightFactor,}){
     return Align(child: this, key: key, alignment: alignment, widthFactor: widthFactor, heightFactor: heightFactor,);
+  }
+}
+
+
+extension SwiftAnimatedOpacity on Widget{
+
+  AnimatedOpacity animatedOpacity({
+    Key? key,
+    required this.opacity,
+    Curve curve = Curves.linear,
+    required Duration duration,
+    VoidCallback? onEnd,
+    this.alwaysIncludeSemantics = false,
+  }){
+    return AnimatedOpacity(
+      key: key,
+      opacity: opacity,
+      curve : Curves.linear,
+      duration: duration,
+      onEnd: onEnd,
+      alwaysIncludeSemantics: false,
+      child: this,
+    );
   }
 }
