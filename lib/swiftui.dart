@@ -468,7 +468,7 @@ extension SwiftAnimatedOpacity on Widget{
     Curve curve = Curves.linear,
     required Duration duration,
     VoidCallback? onEnd,
-    this.alwaysIncludeSemantics = false,
+    bool alwaysIncludeSemantics = false,
   }){
     return AnimatedOpacity(
       key: key,
