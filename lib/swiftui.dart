@@ -464,7 +464,7 @@ extension SwiftAnimatedOpacity on Widget{
 
   AnimatedOpacity animatedOpacity({
     Key? key,
-    required this.opacity,
+    required double opacity,
     Curve curve = Curves.linear,
     required Duration duration,
     VoidCallback? onEnd,
