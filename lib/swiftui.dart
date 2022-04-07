@@ -509,12 +509,12 @@ extension SwiftClipPath on Widget {
     Clip clipBehavior = Clip.antiAlias,
   }){
 
-    return ClipPath({
+    return ClipPath(
       key: key,
       clipper: clipper,
       clipBehavior:clipBehavior,
       child : this,
-    });
+    );
 
   }
 }
