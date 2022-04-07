@@ -499,3 +499,22 @@ extension SwiftColorFilter on Widget {
     );
   }
 }
+
+
+extension SwiftClipPath on Widget {
+
+  ClipPath clipPath({
+    Key? key,
+    CustomClipper<Path>? clipper,
+    Clip clipBehavior = Clip.antiAlias,
+  }){
+
+    return ClipPath({
+      key: key,
+      clipper: clipper,
+      clipBehavior:clipBehavior,
+      child : this,
+    });
+
+  }
+}
