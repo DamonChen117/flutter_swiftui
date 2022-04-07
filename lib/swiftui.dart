@@ -518,3 +518,27 @@ extension SwiftClipPath on Widget {
 
   }
 }
+
+
+extension SwiftCustomPaint on Widget {
+
+  CustomPaint customPaint({
+    Key? key,
+    CustomPainter? painter,
+    CustomPainter? foregroundPainter,
+    Size size = Size.zero,
+    bool isComplex = false,
+    bool willChange = false,
+  }){
+
+    return CustomPaint(
+      key: key,
+      painter: painter,
+      foregroundPainter: foregroundPainter,
+      size: size,
+      isComplex:isComplex,
+      willChange:willChange,
+      child: this,);
+    
+  }
+}
