@@ -129,25 +129,32 @@ extension SwiftBorder on Widget{
 class GestureDetectorBuilder {
 
   Widget child;
-  GestureTapCallback? onTap2;
-  GestureLongPressCallback? onLongPress2;
+  GestureTapCallback? _onTap;
+  GestureLongPressCallback? _onLongPress;
+  GestureTapCallback? _onDoubleTap;
 
   GestureDetectorBuilder(this.child);
 
   GestureDetector build(){
     return GestureDetector(
         child:child,
-        onTap: onTap2,
-        onLongPress:onLongPress2);
+        onTap: _onTap,
+        onDoubleTap: _onDoubleTap,
+        onLongPress:_onLongPress);
   }
 
   GestureDetectorBuilder onTap(GestureTapCallback onTap) {
-    this.onTap2 = onTap;
+    this._onTap = onTap;
     return this;
   }
 
   GestureDetectorBuilder onLongPress(GestureLongPressCallback onLongPress) {
-    this.onLongPress2 = onLongPress;
+    this._onLongPress = onLongPress;
+    return this;
+  }
+
+  GestureDetectorBuilder onDoubleTap(GestureTapCallback onDoubleTap) {
+    this._onDoubleTap = onDoubleTap;
     return this;
   }
 }
