@@ -4,6 +4,7 @@ library flutter_swiftui;
 import 'package:flutter/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/gestures.dart' show DragStartBehavior;
+import 'dart:async';
 
 extension AdjustingThePaddingOfAView on Widget {
   /// Pads the view along all edge insets by the specified amount.
@@ -548,4 +549,49 @@ extension SwiftCustomPaint on Widget {
       child: this,);
     
   }
+}
+
+class FutureBuilder2<T> {
+
+  final Future<T> future;
+  Function(BuildContext context, Object error)? _onError;
+  Function(BuildContext context)? _onProgress;
+  Function(BuildContext context, T data)? _onData;
+
+  FutureBuilder2(this.future);
+
+  FutureBuilder2 onData(Function(BuildContext context, T data)? onData){
+    _onData = onData;
+    return this;
+  }
+
+  FutureBuilder2 onProgress(Function(BuildContext context)? onProgress){
+    _onProgress = onProgress;
+    return this;
+  }
+
+  FutureBuilder2 onError(Function(BuildContext context, Object error)? onError){
+    _onError = onError;
+    return this;
+  }
+
+  FutureBuilder<T> build()
+  {
+
+    return FutureBuilder<T>(
+      future: future,
+      builder: (BuildContext context, AsyncSnapshot<T> snapshot) {
+        if (snapshot.hasError){
+          return _onError?.call(context, snapshot.error!) ?? Container();
+        }
+
+        if (snapshot.connectionState != ConnectionState.done){
+          return _onProgress?.call(context) ?? CircularProgressIndicator().center();
+        }
+
+        return _onData?.call(context, snapshot.data!) ?? Container();
+      },
+    );
+  }
+
 }
