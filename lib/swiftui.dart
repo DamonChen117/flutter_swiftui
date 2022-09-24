@@ -595,3 +595,13 @@ class FutureBuilder2<T> {
   }
 
 }
+extension SwiftRawKeyboardListener on Widget{
+  RawKeyboardListener rawKeyboardListener({
+    Key? key,
+    required FocusNode focusNode,
+    ValueChanged<RawKeyEvent>? onKey,
+    bool autofocus = false,
+    bool includeSemantics = true}){
+    return RawKeyboardListener(child: this, key: key, focusNode: focusNode, onKey:onKey);
+  }
+}
