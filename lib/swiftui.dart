@@ -48,10 +48,16 @@ extension SettingTheForegroundOrBackgroundOfAView on Widget {
   /// func overlay<Overlay>(Overlay, alignment: Alignment) -> View
   /// Layers a secondary view in front of the view.
   Widget overlay(
-      Widget overlay, [
+      Widget overlay, {
+        Key? key,
         Alignment alignment = Alignment.center,
-      ]) =>
-      Stack(alignment: alignment, children: <Widget>[this, overlay]);
+        StackFit fit = StackFit.loose,
+      }) =>
+
+      Stack(key:key,
+          alignment: alignment,
+          fit:fit,
+          children: <Widget>[this, overlay]);
 
   /// func foregroundColor(Color?) -> View
   /// Sets the color that the view uses for foreground elements.
