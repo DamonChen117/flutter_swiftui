@@ -611,3 +611,29 @@ extension SwiftRawKeyboardListener on Widget{
     return RawKeyboardListener(child: this, key: key, focusNode: focusNode, onKey:onKey);
   }
 }
+
+
+extension SwiftBoxShadow on Widget {
+
+  Container boxShadow(){
+    return Container(
+      child: this,
+      decoration: BoxDecoration(
+        // color: Colors.transparent,
+        // borderRadius: const BorderRadius.only(
+        //     topLeft: Radius.circular(10),
+        //     topRight: Radius.circular(10),
+        //     bottomLeft: Radius.circular(10),
+        //     bottomRight: Radius.circular(10)),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.grey, //shadow color
+            spreadRadius: 3, // spread radius
+            blurRadius: 5, // shadow blur radius
+            offset: const Offset(3, 3), // changes position of shadow
+          ),
+        ],
+      ),
+    );
+  }
+}
