@@ -666,3 +666,18 @@ extension SwiftBoxShadow on Widget {
     );
   }
 }
+
+extension SwiftIgnorePointer on Widget {
+  IgnorePointer ignorePointer({
+    Key? key,
+    bool ignoring = true,
+    bool? ignoringSemantics,
+}){
+    return IgnorePointer(
+      key: key,
+      child: this,
+      ignoring: ignoring,
+      ignoringSemantics:ignoringSemantics
+    );
+  }
+}
