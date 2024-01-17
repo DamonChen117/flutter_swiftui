@@ -560,23 +560,25 @@ extension SwiftCustomPaint on Widget {
 class FutureBuilder2<T> {
 
   final Future<T> future;
-  Widget Function(BuildContext context, Object error)? _onError;
-  Widget Function(BuildContext context)? _onProgress;
-  Widget Function(BuildContext context, T data)? _onData;
+  Function(BuildContext context, Object error)? _onError;
+  Function(BuildContext context)? _onProgress;
+  Function(BuildContext context, T data)? _onData;
 
-  FutureBuilder2(this.future);
+  Key? key;
 
-  FutureBuilder2 onData(Widget Function(BuildContext context, T data)? onData){
+  FutureBuilder2(this.future, {this.key});
+
+  FutureBuilder2 onData(Function(BuildContext context, T data)? onData){
     _onData = onData;
     return this;
   }
 
-  FutureBuilder2 onProgress(Widget Function(BuildContext context)? onProgress){
+  FutureBuilder2 onProgress(Function(BuildContext context)? onProgress){
     _onProgress = onProgress;
     return this;
   }
 
-  FutureBuilder2 onError(Widget Function(BuildContext context, Object error)? onError){
+  FutureBuilder2 onError(Function(BuildContext context, Object error)? onError){
     _onError = onError;
     return this;
   }
@@ -585,6 +587,7 @@ class FutureBuilder2<T> {
   {
 
     return FutureBuilder<T>(
+      key: key,
       future: future,
       builder: (BuildContext context, AsyncSnapshot<T> snapshot) {
         if (snapshot.hasError){
@@ -601,6 +604,7 @@ class FutureBuilder2<T> {
   }
 
 }
+
 //Future<ValueNotifier<T>> valueNotifier
 class FutureValueNotifierListener<T> extends FutureBuilder2<ValueNotifier<T>>{
   Future<ValueNotifier<T>> futurevalueNotifier;
