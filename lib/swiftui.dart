@@ -177,6 +177,15 @@ extension SwiftTap on Widget {
           key:key,
           behavior:behavior);
 
+  Widget onTapUp(GestureTapUpCallback onTapUp, {
+    Key? key,
+    HitTestBehavior? behavior}) =>
+      GestureDetector(
+          onTapUp: onTapUp,
+          child:this,
+          key:key,
+          behavior:behavior);
+
   GestureDetectorBuilder gestureBuilder() =>
       GestureDetectorBuilder(this);
 }
