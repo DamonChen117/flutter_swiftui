@@ -310,13 +310,13 @@ extension v on Widget {
   Widget scrollbar({
     Key? key,
     ScrollController? controller,
-    bool isAlwaysShown = false,
+    bool? thumbVisibility,
     double? thickness,
     Radius? radius,
   })
   => Scrollbar(key:key,
     controller:controller,
-    isAlwaysShown:isAlwaysShown,
+    thumbVisibility:thumbVisibility,
     thickness:thickness,
     radius:radius,
     child: this,);
