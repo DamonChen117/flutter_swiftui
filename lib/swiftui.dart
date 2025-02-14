@@ -457,6 +457,21 @@ extension PositionedSwift on Widget {
       width: width,
       height: height,);
   }
+
+  Positioned positionedFill({
+    Key? key,
+    double? left,
+    double? top,
+    double? right,
+    double? bottom,
+  }){
+    return Positioned.fill(
+      child: this,
+      left: left,
+      top:top,
+      right: right,
+      bottom: bottom,);
+  }
 }
 
 extension BuildContextPush on BuildContext{
@@ -466,6 +481,10 @@ extension BuildContextPush on BuildContext{
 
   void pop(){
     Navigator.of(this).pop();
+  }
+  
+  void replaceCurrentPage(Widget page){
+    Navigator.of(this).pushReplacement(MaterialPageRoute(builder: (context) => page));
   }
 }
 
@@ -693,4 +712,48 @@ extension SwiftIgnorePointer on Widget {
       ignoringSemantics:ignoringSemantics
     );
   }
+}
+
+extension SwiftTransform on Widget {
+
+  Transform rotate({
+    Key? key,
+    required double angle,
+    Offset? origin,
+    Alignment alignment = Alignment.center,
+    bool transformHitTests = true,
+    FilterQuality? filterQuality}){
+    return Transform.rotate(
+        key:key,
+        angle: angle,
+        origin:origin,
+        alignment:alignment,
+        transformHitTests:transformHitTests,
+        filterQuality:filterQuality,
+        child: this,
+    );
+  }
+
+  Transform scale({
+    Key? key,
+    double? scale,
+    double? scaleX,
+    double? scaleY,
+    Offset? origin,
+    Alignment alignment = Alignment.center,
+    bool transformHitTests = true,
+    FilterQuality? filterQuality}){
+    return Transform.scale(
+      key:key,
+      scale: scale,
+      scaleX: scaleX,
+      scaleY: scaleY,
+      origin:origin,
+      alignment:alignment,
+      transformHitTests:transformHitTests,
+      filterQuality:filterQuality,
+      child: this,
+    );
+  }
+
 }
