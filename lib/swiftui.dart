@@ -137,6 +137,8 @@ class GestureDetectorBuilder {
 
   Widget child;
   GestureTapCallback? _onTap;
+  GestureTapUpCallback? _onTapUp;
+  GestureTapDownCallback? _onTapDown;
   GestureLongPressCallback? _onLongPress;
   GestureTapCallback? _onDoubleTap;
 
@@ -146,12 +148,24 @@ class GestureDetectorBuilder {
     return GestureDetector(
         child:child,
         onTap: _onTap,
+        onTapUp: _onTapUp,
+        onTapDown: _onTapDown,
         onDoubleTap: _onDoubleTap,
         onLongPress:_onLongPress);
   }
 
   GestureDetectorBuilder onTap(GestureTapCallback onTap) {
     this._onTap = onTap;
+    return this;
+  }
+
+  GestureDetectorBuilder onTapUp( GestureTapUpCallback? onTapUp) {
+    this._onTapUp = _onTapUp;
+    return this;
+  }
+
+  GestureDetectorBuilder onTapDown(GestureTapDownCallback? onTapDown) {
+    this._onTapDown = onTapDown;
     return this;
   }
 
