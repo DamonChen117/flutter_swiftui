@@ -160,7 +160,7 @@ class GestureDetectorBuilder {
   }
 
   GestureDetectorBuilder onTapUp( GestureTapUpCallback? onTapUp) {
-    this._onTapUp = _onTapUp;
+    this._onTapUp = onTapUp;
     return this;
   }
 
