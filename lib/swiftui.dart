@@ -866,4 +866,86 @@ extension SwiftTransform on Widget {
     );
   }
 
+
+  Transform flip({
+    Key? key,
+    bool flipX = false,
+    bool flipY = false,
+    Offset? origin,
+    bool transformHitTests = true,
+    FilterQuality? filterQuality,
+  }){
+    return Transform.flip(
+      key: key,
+      flipX: flipX,
+      flipY: flipY,
+      origin: origin,
+      transformHitTests: transformHitTests,
+      filterQuality: filterQuality,
+      child: this,
+    );
+  }
+}
+
+
+// 溢出盒子扩展
+extension UnNestOverflowBox on Widget {
+  Widget overflowBox({
+    Key? key,
+    AlignmentGeometry alignment = Alignment.center,
+    double? minWidth,
+    double? maxWidth,
+    double? minHeight,
+    double? maxHeight,
+  }) =>
+      OverflowBox(
+        key: key,
+        alignment: alignment,
+        minWidth: minWidth,
+        maxWidth: maxWidth,
+        minHeight: minHeight,
+        maxHeight: maxHeight,
+        child: this,
+      );
+}
+
+
+enum OuterSeparatorMode{
+  top,
+  bottom,
+  both,
+  none
+}
+
+extension SeparatorBuilderList on List<Widget> {
+
+  List<Widget> separatorBuilder(
+      OuterSeparatorMode mode,
+      Widget Function(int index) builder
+      ){
+
+
+    int insetIndex;
+    if (mode == OuterSeparatorMode.top || mode == OuterSeparatorMode.both){
+
+      this.insert(0, builder(-1));
+      insetIndex = 2;
+    }
+    else {
+      insetIndex = 1;
+    }
+
+    var sepratorIndex = 0;
+
+    for (var i=insetIndex;i<this.length;i+=2){
+      this.insert(i, builder(sepratorIndex));
+      sepratorIndex ++;
+    }
+
+    if (mode == OuterSeparatorMode.bottom || mode == OuterSeparatorMode.both){
+      this.add(builder(sepratorIndex));
+    }
+
+    return this;
+  }
 }
