@@ -695,18 +695,25 @@ extension SwiftCustomPaint on Widget {
   }
 }
 
+
 class FutureBuilder2<T> {
 
   final Future<T> future;
   Function(BuildContext context, Object error)? _onError;
   Function(BuildContext context)? _onProgress;
   Function(BuildContext context, T data)? _onData;
+  Function(BuildContext context, T? data)? _onOptionData;
 
   Key? key;
 
   FutureBuilder2(this.future, {this.key});
 
   FutureBuilder2 onData(Function(BuildContext context, T data)? onData){
+    _onData = onData;
+    return this;
+  }
+
+  FutureBuilder2 onOptionData(Function(BuildContext context, T? data)? onData){
     _onData = onData;
     return this;
   }
@@ -736,7 +743,12 @@ class FutureBuilder2<T> {
           return _onProgress?.call(context) ?? CircularProgressIndicator().center();
         }
 
-        return _onData?.call(context, snapshot.data!) ?? Container();
+        if (snapshot.data != null && _onData != null){
+          return _onData?.call(context, snapshot.data!) ?? Container();
+        }
+        
+        return _onOptionData?.call(context, snapshot.data) ?? Container();
+
       },
     );
   }
